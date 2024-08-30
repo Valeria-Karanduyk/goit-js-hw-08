@@ -74,11 +74,8 @@ const x = images.map(image => {
   linkGallery.classList.add('gallery-link');
   linkGallery.href = `${image.original}`;
   itemGallery.appendChild(linkGallery);
-  linkGallery.addEventListener('click', function (event) {
-    event.preventDefault();
-  });
   const imgGallery = document.createElement('img');
-  imgGallery.class = 'gallery-image';
+  imgGallery.className = 'gallery-image';
   imgGallery.src = `${image.preview}`;
   imgGallery.dataset.source = `${image.original}`;
   imgGallery.alt = `${image.description}`;
@@ -91,6 +88,7 @@ console.log(selectGallery);
 
 selectGallery.addEventListener('click', tapGallery);
 function tapGallery(event) {
+  event.preventDefault();
   if (event.target.nodeName !== 'IMG') {
     return;
   }
